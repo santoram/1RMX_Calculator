@@ -13,8 +13,9 @@ def get_exercise_info():
     try:
         weight_request = int(request.args.get('weight'))
         reps_request = int(request.args.get('reps'))
-        one_rep_max = int(weight_request /(1.0278 - 0.0278 * reps_request))
-        return Response(json.dumps(f"Your one rep max is {one_rep_max}"))
+        one_rep_max = int(weight_request /(1.0278 - (0.0278 * reps_request)))
+        print(one_rep_max)
+        return jsonify({"ORM": one_rep_max})
     except:
         print(f"Error: Unable to calculate")
         return jsonify({"error": "Could not calculate 1 rep max"}),500
