@@ -15,7 +15,7 @@ def get_exercise_info():
         weight_request = int(request.args.get('weight'))
         reps_request = int(request.args.get('reps'))
         one_rep_max = int(weight_request /(1.0278 - (0.0278 * reps_request)))
-        print("Your 1 rep max is {one_rep_max}")
+        print(f"Your 1 rep max is {one_rep_max}")
         print("Calculated. Sending...")
         return jsonify({"ORM": one_rep_max})
     except:
